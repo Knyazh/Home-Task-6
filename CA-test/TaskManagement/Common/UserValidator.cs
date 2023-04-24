@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TaskManagement.Database;
 using TaskManagement.Database.Models;
@@ -98,16 +99,19 @@ namespace TaskManagement.Common
                 Console.WriteLine("Pls enter email : ");
                 string email = Console.ReadLine()!;
 
-                char separator ='@';
-                string domain = "code.edu.az";
+                //char separator ='@';
+                //string domain = "code.edu.az";
 
-                if (!domain.EndsWith("code.edu.az"))
-                {
-                    Console.WriteLine("Your email must be end code.edu.az ");
-                    return email;
-                }
+                //if (!domain.EndsWith("code.edu.az"))
+                //{
+                //    Console.WriteLine("Your email must be end code.edu.az ");
+                //    return email;
+                //}
 
-                if (_utility.Contains(email, separator))
+                string pattern = @"^[a-zA-Z0-9]{10,30}@code\.edu\.az$";
+                bool isValidEmail = Regex.IsMatch(email, pattern);
+
+                if (isValidEmail)
                 {
                     if (!IsEmailExists(email))
                         return email;
@@ -115,7 +119,7 @@ namespace TaskManagement.Common
                         Console.WriteLine("Your email is already used in system, pls try another email");
                 }
                 else
-                    Console.WriteLine("Ensure that your email contains @ characheter");
+                    Console.WriteLine("Enter correct format email");
 
             }
         }

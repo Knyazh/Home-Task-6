@@ -19,7 +19,7 @@ namespace TaskManagement.Common
             string email = userValidator.GetAndValidateEmail();
 
 
-            DateTime dateTime = DateTime.Now;
+            
             User human = new User(firstName, lastName, password, email);
             Console.WriteLine($"Succes name: {human.Name} ,latsname:{human.LastName}, date:{human.RegistrationTime}");
             userRepository.Insert(human);

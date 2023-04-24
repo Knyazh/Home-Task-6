@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using TaskManagement.Common;
 using TaskManagement.Services;
 
-namespace TaskManagement.Admin.Commands
+namespace TaskManagement.Shared
 {
     public class UpdateSettingsCommand
     {
-        public static void Handle()
+        public virtual void Handle()
         {
             UserValidator userValidator = new UserValidator();
 
