@@ -11,6 +11,12 @@ namespace TaskManagement
         {
             while (true)
             {
+                Console.WriteLine("Aviable commands:");
+                Console.WriteLine();
+                Console.WriteLine("/register");
+                Console.WriteLine("/login");
+                Console.WriteLine("/exit");
+                Console.Write("Enter Command:");
                 string command = Console.ReadLine()!;
 
                 switch (command)
